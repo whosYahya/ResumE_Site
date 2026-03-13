@@ -26,8 +26,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:yahyaarshadshaikh0@gmail.com",
-      value: "yahyaarshadshaikh0@gmail.com",
+      href: "mailto:yahyaashaikh065@gmail.com",
+      value: "yahyaashaikh065@gmail.com",
     },
     {
       icon: Github,
@@ -38,7 +38,7 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/yahyashaikh",
+      href: "www.linkedin.com/in/yahya-shaikh0605",
       value: "yahyashaikh",
     },
   ];
