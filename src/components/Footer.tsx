@@ -11,7 +11,7 @@ const Footer = () => {
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/yahyashaikh",
+      href: "https://www.linkedin.com/in/yahya-shaikh0605",
       label: "LinkedIn",
     },
     {

@@ -11,7 +11,7 @@ const projects = [
       "Comprehensive data analysis project using Python for data cleaning and Power BI for interactive dashboards. Uncovered insights on pricing trends, demand patterns, and occupancy rates.",
     tech: ["Python", "Pandas", "Power BI", "Data Analysis"],
     github: "https://github.com/whosYahya/airbnb-barcelona-analysis",
-    image: "/placeholder.svg",
+    image: "/projects/airbnb-barcelona-analysis.png",
   },
   {
     title: "Handwritten Digit Recognition",
@@ -19,7 +19,7 @@ const projects = [
       "CNN-based machine learning model trained on the MNIST dataset. Features a Tkinter GUI for real-time digit prediction with high accuracy.",
     tech: ["Python", "TensorFlow", "Tkinter", "CNN", "ML"],
     github: "https://github.com/whosYahya/handwritten-digit-recognition",
-    image: "/placeholder.svg",
+    image: "/projects/handwritten-digit-recognition.png",
   },
 ];
 
@@ -55,13 +55,14 @@ const Projects = () => {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className="glass-card overflow-hidden group hover:glow transition-all duration-500"
             >
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl font-mono text-primary/30 group-hover:text-primary/50 transition-colors duration-300">
-                    {index === 0 ? "📊" : "🧠"}
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/10 to-transparent" />
               </div>
 
               <div className="p-6">

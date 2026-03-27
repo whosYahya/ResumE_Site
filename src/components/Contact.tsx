@@ -38,8 +38,8 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "www.linkedin.com/in/yahya-shaikh0605",
-      value: "yahyashaikh",
+      href: "https://www.linkedin.com/in/yahya-shaikh0605",
+      value: "yahya-shaikh0605",
     },
   ];
 
