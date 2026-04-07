@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Code2, Briefcase, Lightbulb } from "lucide-react";
+import { CheckCircle, Briefcase, Lightbulb } from "lucide-react";
 
 const About = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -9,9 +9,9 @@ const About = () => {
 
   const highlights = [
     {
-      icon: Code2,
-      title: "Full-Stack Development",
-      description: "Python, JavaScript, and modern web technologies",
+      icon: CheckCircle,
+      title: "QA Automation & Testing",
+      description: "Playwright, API testing, and ERPNext quality assurance",
     },
     {
       icon: Briefcase,
@@ -53,15 +53,19 @@ const About = () => {
           >
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               I'm an <span className="text-primary font-semibold">ERPNext Engineer</span> and{" "}
-              <span className="text-primary font-semibold">Software Developer</span> passionate about
-              building scalable business solutions. With hands-on experience in Python, JavaScript,
-              and the Frappe Framework, I specialize in developing custom ERP modules, automating
-              workflows, and creating data-driven applications.
+              <span className="text-primary font-semibold">Software Developer</span> focused on
+              building scalable, automation-driven business systems. With hands-on experience in
+              Python, JavaScript, and the Frappe Framework, I develop custom ERP solutions that
+              streamline operations and reduce manual workload.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              My focus is on solving real-world business challenges through clean code,
-              efficient APIs, and intelligent automation. I thrive on learning new technologies
-              and applying them to create impactful solutions.
+              I specialize in workflow automation, API integrations, and building real-world
+              business logic into ERP systems. My work centers around creating efficient,
+              reliable, and data-driven applications that solve practical problems.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mt-6">
+              I'm continuously exploring ways to combine ERP systems with automation tools and AI
+              to build smarter, more intelligent business solutions.
             </p>
           </motion.div>
 

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Mail, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ProfilePic from "@/components/ProfilePic";
 
 const heroLayout = {
   section: "relative flex items-center justify-center",
@@ -23,7 +24,7 @@ const heroSizing = {
 };
 
 const heroMedia = {
-  imageSrc: "/profile.jpg",
+  imageSrc: "/projects/profile.jpg",
   imageAlt: "Yahya profile picture",
 };
 
@@ -64,7 +65,7 @@ const Hero = () => {
               className={`${heroLayout.title} text-4xl md:text-5xl lg:text-7xl mb-6`}
               style={{ maxWidth: heroSizing.titleMaxWidth }}
             >
-              Building Scalable ERP Solutions
+              ERPNext & Automation Engineer
             </h1>
           </motion.div>
 
@@ -75,7 +76,7 @@ const Hero = () => {
             className={`${heroLayout.subtitle} text-lg md:text-xl mb-8`}
             style={{ maxWidth: heroSizing.subtitleMaxWidth }}
           >
-            ERPNext Engineer | Software Developer | Python | JavaScript | Data & AI/ML
+            Backend & Automation Engineer | Building AI-Powered Business Tools | Python • ERPNext • Playwright
           </motion.p>
 
           <motion.div
@@ -145,19 +146,12 @@ const Hero = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
           className="hidden lg:block justify-self-end"
         >
-          <div className="relative mx-auto aspect-square w-full max-w-[26rem] overflow-hidden rounded-[2rem] border border-primary/20 bg-secondary/30 shadow-2xl">
-            <img
-              src={heroMedia.imageSrc}
-              alt={heroMedia.imageAlt}
-              className="h-full w-full object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
-          </div>
+          <ProfilePic src={heroMedia.imageSrc} alt={heroMedia.imageAlt} size="26rem" />
         </motion.div>
       </div>
 

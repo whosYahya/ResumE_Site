@@ -6,14 +6,14 @@ import { GraduationCap, Calendar, Award } from "lucide-react";
 const educationData = [
   {
     degree: "M.Sc. Computer Science",
-    institution: "University",
+    institution: "Savitribai Phule Pune University",
     period: "2025 – Present",
     status: "Currently Pursuing",
     icon: GraduationCap,
   },
   {
     degree: "B.Sc. Computer Science",
-    institution: "University",
+    institution: "Savitribai Phule Pune University",
     period: "2022 – 2025",
     status: "CGPA: 8.5",
     icon: Award,

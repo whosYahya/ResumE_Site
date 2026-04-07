@@ -55,7 +55,6 @@ const Navigation = () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          YAHYA
         </a>
 
         {/* Desktop Navigation */}

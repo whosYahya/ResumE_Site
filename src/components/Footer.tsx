@@ -32,9 +32,6 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">
               © {currentYear} Yahya Arshad Shaikh. All rights reserved.
             </p>
-            <p className="text-xs text-muted-foreground/60 mt-1 flex items-center justify-center md:justify-start gap-1">
-              Built with <Heart className="h-3 w-3 text-primary" /> and code
-            </p>
           </div>
 
           <div className="flex items-center gap-4">
