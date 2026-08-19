@@ -1,115 +1,125 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const skillCategories = [
-  {
-    title: "Programming",
-    skills: [
-      { name: "Python", level: 90 },
-      { name: "JavaScript", level: 85 },
-      { name: "HTML/CSS", level: 85 },
-      { name: "SQL", level: 80 },
-    ],
-  },
-  {
-    title: "Frameworks & Tools",
-    skills: [
-      { name: "ERPNext", level: 90 },
-      { name: "Frappe Framework", level: 88 },
-      { name: "Pandas", level: 75 },
-      { name: "NumPy", level: 70 },
-      { name: "Scikit-learn", level: 65 },
-    ],
-  },
-  {
-    title: "Databases",
-    skills: [
-      { name: "MariaDB", level: 85 },
-      { name: "MySQL", level: 82 },
-      { name: "SQLite", level: 75 },
-    ],
-  },
-  {
-    title: "Dev Tools",
-    skills: [
-      { name: "Git", level: 85 },
-      { name: "GitHub", level: 85 },
-      { name: "Bench CLI", level: 80 },
-      { name: "Ngrok", level: 70 },
-    ],
-  },
-  {
-    title: "Other",
-    skills: [
-      { name: "Debugging", level: 88 },
-      { name: "API Testing", level: 85 },
-      { name: "Workflow Automation", level: 82 },
-      { name: "QA Collaboration", level: 80 },
-    ],
-  },
+const row1Tools = [
+  { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "Playwright", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/playwright/playwright-original.svg" },
+  { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+  { name: "MariaDB", icon: "https://cdn.simpleicons.org/mariadb" },
+  { name: "MySQL", icon: "https://cdn.simpleicons.org/mysql" },
+  { name: "ERPNext", icon: "https://cdn.simpleicons.org/erpnext" },
+  { name: "Figma", icon: "https://cdn.brandfetch.io/idZHcZ_i7F/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B" },
+  { name: "Canva", icon: "https://cdn.brandfetch.io/id9mVQlyB1/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B" },
+  { name: "Notion", icon: "https://cdn.simpleicons.org/notion" },
+  { name: "Power BI", icon: "https://cdn.brandfetch.io/idVCtIagXj/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" },
+  { name: "openclaw", icon: "https://cdn.brandfetch.io/idE7_a-JBc/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" },
+  { name: "n8n", icon: "https://cdn.simpleicons.org/n8n" },
 ];
+
+const row2Tools = [
+  { name: "AngularJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+  { name: "Android", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" },
+  { name: "Frappe", icon: "https://cdn.simpleicons.org/frappe" },
+  { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+  { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+  { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+  { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+  { name: "Tailwind", icon: "https://cdn.brandfetch.io/idMNEQh7-0/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B" },
+  { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+  { name: "Scikit-learn", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" },
+  { name: "Vercel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" },
+  { name: "Netlify", icon: "https://cdn.simpleicons.org/netlify" },
+  { name: "Postman", icon: "https://cdn.simpleicons.org/postman" },
+  { name: "Docker", icon: "https://cdn.simpleicons.org/docker" },
+  { name: "Claude", icon: "https://cdn.simpleicons.org/claude" },
+  { name: "ChatGPT", icon: "https://cdn.brandfetch.io/id2UDPob7G/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" },
+];
+
+const TechCard = ({ name, icon }: { name: string; icon: string }) => (
+  <motion.div
+    whileHover={{ y: -5, scale: 1.05 }}
+    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    className="flex flex-col items-center gap-3 px-6 py-5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm min-w-[100px] cursor-default"
+  >
+    <img
+      src={icon}
+      alt={name}
+      className="w-[46px] h-[46px] object-contain"
+      onError={(e) => {
+        (e.target as HTMLImageElement).style.display = "none";
+      }}
+    />
+    <span className="text-sm text-muted-foreground whitespace-nowrap">{name}</span>
+  </motion.div>
+);
+
+const MarqueeRow = ({
+  tools,
+  direction = "left",
+  duration = "25s",
+}: {
+  tools: typeof row1Tools;
+  direction?: "left" | "right";
+  duration?: string;
+}) => {
+  const doubled = [...tools, ...tools];
+  return (
+    <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] mb-4">
+      <div
+        className="flex gap-4 w-max"
+        style={{
+          animation: `marquee-${direction} ${duration} linear infinite`,
+        }}
+      >
+        {doubled.map((tool, i) => (
+          <TechCard key={`${tool.name}-${i}`} {...tool} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const Skills = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isVisible = useScrollAnimation(sectionRef);
 
   return (
-    <section
-      id="skills"
-      ref={sectionRef}
-      className="section-padding bg-secondary/30"
-    >
+    <section id="skills" ref={sectionRef} className="section-padding">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            My <span className="gradient-text">Skills</span>
+          <p className="text-xs tracking-[0.15em] text-primary uppercase mb-2">
+            // tech stack
+          </p>
+          <h2 className="text-3xl md:text-4xl font-display font-bold">
+            Tools I Work <span className="gradient-text">With</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full glow-sm" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
-              className="glass-card p-6 hover:glow-sm transition-all duration-300"
-            >
-              <h3 className="text-xl font-semibold mb-6 text-primary">
-                {category.title}
-              </h3>
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <motion.div
-                        className="skill-bar-fill"
-                        initial={{ width: 0 }}
-                        animate={isVisible ? { width: `${skill.level}%` } : {}}
-                        transition={{
-                          duration: 1,
-                          delay: categoryIndex * 0.1 + skillIndex * 0.1,
-                          ease: "easeOut",
-                        }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <style>{`
+          @keyframes marquee-left {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+          }
+          @keyframes marquee-right {
+            from { transform: translateX(-50%); }
+            to { transform: translateX(0); }
+          }
+        `}</style>
+
+        <MarqueeRow tools={row1Tools} direction="left" duration="28s" />
+        <MarqueeRow tools={row2Tools} direction="right" duration="32s" />
       </div>
     </section>
   );

@@ -76,7 +76,7 @@ const Hero = () => {
             className={`${heroLayout.subtitle} text-lg md:text-xl mb-8`}
             style={{ maxWidth: heroSizing.subtitleMaxWidth }}
           >
-            Backend & Automation Engineer | Building AI-Powered Business Tools | Python • ERPNext • Playwright
+            Building Smart Automations for Businesses with ERPNext and other AI Tools.
           </motion.p>
 
           <motion.div
