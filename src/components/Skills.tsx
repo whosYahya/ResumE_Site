@@ -18,13 +18,13 @@ const row1Tools = [
   { name: "Canva", icon: "https://cdn.brandfetch.io/id9mVQlyB1/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B" },
   { name: "Notion", icon: "https://cdn.simpleicons.org/notion" },
   { name: "Power BI", icon: "https://cdn.brandfetch.io/idVCtIagXj/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" },
-  { name: "openclaw", icon: "https://cdn.brandfetch.io/idE7_a-JBc/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" },
+  { name: "Openclaw", icon: "https://cdn.brandfetch.io/idE7_a-JBc/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" },
   { name: "n8n", icon: "https://cdn.simpleicons.org/n8n" },
 ];
 
 const row2Tools = [
-  { name: "AngularJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
-  { name: "Android", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" },
+  { name: "Replit", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/replit/replit-original.svg" },
+  { name: "FlutterFlow", icon: "https://cdn.brandfetch.io/id209IGdxm/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B" },
   { name: "Frappe", icon: "https://cdn.simpleicons.org/frappe" },
   { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
   { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
