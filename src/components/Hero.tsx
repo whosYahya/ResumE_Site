@@ -1,175 +1,242 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Mail, Github, Linkedin } from "lucide-react";
+import {
+  ArrowDown,
+  Download,
+  Mail,
+  Github,
+  Linkedin,
+  Code2,
+  Bot,
+  LineChart,
+  Zap,
+  Boxes,
+  Users,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ProfilePic from "@/components/ProfilePic";
 
-const heroLayout = {
-  section: "relative flex items-center justify-center",
-  container: "mx-auto w-full text-left z-10",
-  intro: "space-y-4",
-  title: "font-display font-bold leading-tight",
-  subtitle: "text-muted-foreground",
-  actions: "flex flex-wrap justify-start gap-4",
-  socials: "flex justify-start gap-6",
-  scroll: "absolute left-1/2 -translate-x-1/2",
-};
+const badges = [
+  {
+    icon: Code2,
+    label: "ERPNext",
+    sub: "Developer",
+    position: "left-0 top-[12%] lg:-left-10",
+  },
+  {
+    icon: Bot,
+    label: "Automation",
+    sub: "Enthusiast",
+    position: "right-0 top-[28%] lg:-right-8",
+  },
+  {
+    icon: LineChart,
+    label: "Problem",
+    sub: "Solver",
+    position: "left-0 bottom-[22%] lg:-left-14",
+  },
+  {
+    icon: Zap,
+    label: "AI Tools",
+    sub: "Explorer",
+    position: "right-0 bottom-[8%] lg:-right-4",
+  },
+];
 
-const heroSizing = {
-  minHeight: "100vh",
-  paddingX: "1rem",
-  paddingTop: "8rem",
-  contentMaxWidth: "72rem",
-  subtitleMaxWidth: "42rem",
-  titleMaxWidth: "64rem",
-};
-
-const heroMedia = {
-  imageSrc: "/projects/profile.jpg",
-  imageAlt: "Yahya profile picture",
-};
+const stats = [
+  { icon: Code2, value: "2+", label: "Years Experience" },
+  { icon: Boxes, value: "10+", label: "Projects Completed" },
+  { icon: Zap, value: "Automation", label: "Driven Solutions" },
+  { icon: Users, value: "100%", label: "Client Satisfaction" },
+];
 
 const Hero = () => {
-  const scrollToProjects = () => {
-    document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToContact = () => {
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollTo = (id: string) =>
+    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section
-      className={heroLayout.section}
-      style={{
-        minHeight: heroSizing.minHeight,
-        paddingTop: heroSizing.paddingTop,
-        paddingLeft: heroSizing.paddingX,
-        paddingRight: heroSizing.paddingX,
-      }}
-    >
-      <div
-        className={`${heroLayout.container} grid gap-12 lg:grid-cols-[1.25fr_0.75fr] items-center`}
-        style={{ maxWidth: heroSizing.contentMaxWidth }}
-      >
-        <div className="space-y-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className={heroLayout.intro}
-          >
-            <p className="text-sm md:text-base uppercase tracking-[0.35em] text-primary/100 font-bold">
-              👋🏼 Hey there! I&apos;m Yahya
-            </p>
-            <h1
-              className={`${heroLayout.title} text-4xl md:text-5xl lg:text-7xl mb-6`}
-              style={{ maxWidth: heroSizing.titleMaxWidth }}
+    <section className="relative flex min-h-screen items-center justify-center px-4 pb-24 pt-32">
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+          {/* Left column */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              ERPNext & Automation Engineer
-            </h1>
-          </motion.div>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-primary md:text-base">
+                <span className="mr-2">👋🏼</span>Hey there! I&apos;m
+              </p>
+              <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
+                Yahya
+                <br />
+                <span className="gradient-text">Shaikh</span>
+              </h1>
+              <div className="mt-6 h-px w-32 bg-gradient-to-r from-primary to-transparent" />
+            </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="mt-8"
+            >
+              <h2 className="font-display text-2xl font-semibold md:text-3xl">
+                <span className="text-primary">ERPNext</span>{" "}
+                <span className="text-foreground/70">&amp;</span>{" "}
+                <span className="gradient-text">Automation Engineer</span>
+              </h2>
+              <p className="mt-4 max-w-md text-base text-muted-foreground md:text-lg">
+                Building smart automations for businesses with ERPNext and other AI
+                tools.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-8 flex flex-wrap gap-4"
+            >
+              <Button
+                size="lg"
+                onClick={() => scrollTo("#projects")}
+                className="glow transition-all duration-300 hover:glow-lg"
+              >
+                View Projects
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-border/80 transition-all duration-300 hover:border-primary hover:bg-primary/10"
+                asChild
+              >
+                <a href="/resume.pdf" download>
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Resume
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => scrollTo("#contact")}
+                className="border-border/80 transition-all duration-300 hover:border-primary hover:bg-primary/10"
+              >
+                <Mail className="mr-2 h-4 w-4" />
+                Contact Me
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.45 }}
+              className="mt-6 flex gap-3"
+            >
+              {[
+                { href: "https://github.com/whosYahya", Icon: Github, label: "GitHub" },
+                {
+                  href: "https://www.linkedin.com/in/yahya-shaikh0605",
+                  Icon: Linkedin,
+                  label: "LinkedIn",
+                },
+                { href: "mailto:yahyaarshadshaikh0@gmail.com", Icon: Mail, label: "Email" },
+              ].map(({ href, Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="rounded-lg border border-border/70 bg-card/40 p-3 text-muted-foreground transition-all duration-300 hover:border-primary hover:text-primary hover:glow-sm"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Right column: portrait + floating badges */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className={`${heroLayout.subtitle} text-lg md:text-xl mb-8`}
-            style={{ maxWidth: heroSizing.subtitleMaxWidth }}
+            className="relative mx-auto w-full max-w-md"
           >
-            Building Smart Automations for Businesses with ERPNext and other AI Tools.
-          </motion.p>
+            <div className="relative aspect-[4/5] w-full">
+              <div
+                className="absolute inset-6 overflow-hidden border border-primary/30 bg-gradient-to-br from-primary/20 to-transparent"
+                style={{
+                  clipPath: "polygon(14% 0%, 100% 0%, 86% 100%, 0% 100%)",
+                  borderRadius: "1.5rem",
+                }}
+              >
+                <img
+                  src="/projects/profile.jpg"
+                  alt="Yahya Arshad Shaikh, ERPNext and automation engineer"
+                  loading="eager"
+                  className="h-full w-full object-cover object-center"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              </div>
+              <div className="pointer-events-none absolute inset-6 -z-10 rounded-3xl bg-primary/20 blur-3xl" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className={`${heroLayout.actions} mb-12`}
-          >
-            <Button
-              size="lg"
-              onClick={scrollToProjects}
-              className="glow hover:glow-lg transition-all duration-300"
-            >
-              View Projects
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary/50 hover:bg-primary/10 hover:border-primary transition-all duration-300"
-              asChild
-            >
-              <a href="/resume.pdf" download>
-                <Download className="mr-2 h-4 w-4" />
-                Download Resume
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="secondary"
-              onClick={scrollToContact}
-              className="hover:bg-primary/20 transition-all duration-300"
-            >
-              <Mail className="mr-2 h-4 w-4" />
-              Contact Me
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className={heroLayout.socials}
-          >
-            <a
-              href="https://github.com/whosYahya"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Github className="h-6 w-6" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/yahya-shaikh0605"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Linkedin className="h-6 w-6" />
-            </a>
-            <a
-              href="mailto:yahyaarshadshaikh0@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Mail className="h-6 w-6" />
-            </a>
+              {badges.map(({ icon: Icon, label, sub, position }, i) => (
+                <motion.div
+                  key={label}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 + i * 0.12 }}
+                  className={`group absolute ${position} z-20 cursor-default`}
+                >
+                  <div className="flex items-center gap-3 rounded-xl border border-border/70 bg-card/70 px-4 py-3 backdrop-blur-xl transition-all duration-300 group-hover:-translate-y-1 group-hover:border-primary group-hover:bg-card group-hover:glow">
+                    <span className="rounded-lg bg-primary/10 p-2 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:text-glow">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <span className="text-xs font-medium leading-tight transition-colors duration-300 group-hover:text-primary md:text-sm">
+                      {label}
+                      <br />
+                      {sub}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
 
+        {/* Stats bar */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className="hidden lg:block justify-self-end"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="glass-card mt-16 grid grid-cols-2 gap-6 p-6 md:grid-cols-4 md:divide-x md:divide-border/60"
         >
-          <ProfilePic src={heroMedia.imageSrc} alt={heroMedia.imageAlt} size="26rem" />
+          {stats.map(({ icon: Icon, value, label }) => (
+            <div key={label} className="group flex items-center gap-4 px-2 md:px-6">
+              <span className="rounded-xl bg-primary/10 p-3 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:glow-sm">
+                <Icon className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="font-display text-lg font-bold leading-tight md:text-xl">
+                  {value}
+                </p>
+                <p className="text-xs text-muted-foreground md:text-sm">{label}</p>
+              </div>
+            </div>
+          ))}
         </motion.div>
       </div>
 
-      <motion.div
+      <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-        className={`${heroLayout.scroll} bottom-8`}
+        transition={{ duration: 0.8, delay: 0.9 }}
+        onClick={() => scrollTo("#about")}
+        aria-label="Scroll to about section"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-float text-muted-foreground transition-colors hover:text-primary"
       >
-        <button
-          onClick={() =>
-            document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })
-          }
-          className="animate-float text-muted-foreground hover:text-primary transition-colors"
-        >
-          <ArrowDown className="h-6 w-6" />
-        </button>
-      </motion.div>
+        <ArrowDown className="h-6 w-6" />
+      </motion.button>
     </section>
   );
 };
