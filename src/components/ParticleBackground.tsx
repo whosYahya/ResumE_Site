@@ -7,6 +7,7 @@ interface Particle {
   vy: number;
   size: number;
   opacity: number;
+  hue: number;
 }
 
 const ParticleBackground = () => {
@@ -32,6 +33,11 @@ const ParticleBackground = () => {
       particlesRef.current = [];
 
       for (let i = 0; i < particleCount; i++) {
+        // Blend between blue (214) and pink (330) hues
+        const hue = Math.random() > 0.5
+          ? 214 + Math.random() * 20
+          : 310 + Math.random() * 40;
+
         particlesRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
@@ -39,6 +45,7 @@ const ParticleBackground = () => {
           vy: (Math.random() - 0.5) * 0.5,
           size: Math.random() * 2 + 1,
           opacity: Math.random() * 0.5 + 0.2,
+          hue,
         });
       }
     };
@@ -46,7 +53,7 @@ const ParticleBackground = () => {
     const drawParticle = (particle: Particle) => {
       ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-      ctx.fillStyle = `hsla(214, 100%, 50%, ${particle.opacity})`;
+      ctx.fillStyle = `hsla(${particle.hue}, 100%, 60%, ${particle.opacity})`;
       ctx.fill();
     };
 
@@ -67,7 +74,7 @@ const ParticleBackground = () => {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `hsla(214, 100%, 60%, ${opacity})`;
+          ctx.strokeStyle = `hsla(${particles[i].hue}, 100%, 65%, ${opacity})`;
           ctx.lineWidth = 1;
           ctx.stroke();
 
@@ -85,10 +92,11 @@ const ParticleBackground = () => {
 
           if (dist < connectionDistance) {
             const opacity = (1 - dist / connectionDistance) * 0.3;
+            const avgHue = (particles[i].hue + particles[j].hue) / 2;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(214, 100%, 50%, ${opacity})`;
+            ctx.strokeStyle = `hsla(${avgHue}, 100%, 60%, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -115,7 +123,7 @@ const ParticleBackground = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       drawConnections();
       particlesRef.current.forEach(drawParticle);
       updateParticles();
