@@ -55,7 +55,9 @@ const Navigation = () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
+          YS<span className="text-primary">.</span>
         </a>
+
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
