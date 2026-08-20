@@ -42,8 +42,7 @@ const badges = [
 ];
 
 const stats = [
-  { icon: Code2, value: "2+", label: "Years Experience" },
-  { icon: Boxes, value: "10+", label: "Projects Completed" },
+  { icon: Boxes, value: "5+", label: "Projects Completed" },
   { icon: Zap, value: "Automation", label: "Driven Solutions" },
   { icon: Users, value: "100%", label: "Client Satisfaction" },
 ];
@@ -69,7 +68,9 @@ const Hero = () => {
               <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
                 Yahya
                 <br />
-                <span className="gradient-text">Shaikh</span>
+                <span className="gradient-text block md:text-[5.125rem]">
+                  Shaikh
+                </span>
               </h1>
               <div className="mt-6 h-px w-32 bg-gradient-to-r from-primary to-transparent" />
             </motion.div>
@@ -160,11 +161,11 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative mx-auto w-full max-w-md"
+            className="relative mx-auto w-full max-w-[calc(28rem+5px)]"
           >
             <div className="relative aspect-[4/5] w-full">
               <div
-                className="absolute inset-6 overflow-hidden border border-primary/30 bg-gradient-to-br from-primary/20 to-transparent"
+                className="absolute inset-6 overflow-hidden border border-primary/30 bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-violet-500/20"
                 style={{
                   clipPath: "polygon(14% 0%, 100% 0%, 86% 100%, 0% 100%)",
                   borderRadius: "1.5rem",
@@ -178,7 +179,8 @@ const Hero = () => {
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               </div>
-              <div className="pointer-events-none absolute inset-6 -z-10 rounded-3xl bg-primary/20 blur-3xl" />
+              <div className="pointer-events-none absolute inset-6 -z-10 rounded-3xl bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.35),_rgba(99,102,241,0.22)_42%,_rgba(139,92,246,0.14)_66%,_transparent_82%)] blur-3xl" />
+              <div className="pointer-events-none absolute inset-2 -z-20 rounded-[2rem] bg-[radial-gradient(circle_at_50%_40%,_rgba(59,130,246,0.18),_transparent_52%),radial-gradient(circle_at_65%_75%,_rgba(139,92,246,0.16),_transparent_40%)] blur-2xl" />
 
               {badges.map(({ icon: Icon, label, sub, position }, i) => (
                 <motion.div
@@ -188,11 +190,11 @@ const Hero = () => {
                   transition={{ duration: 0.5, delay: 0.5 + i * 0.12 }}
                   className={`group absolute ${position} z-20 cursor-default`}
                 >
-                  <div className="flex items-center gap-3 rounded-xl border border-border/70 bg-card/70 px-4 py-3 backdrop-blur-xl transition-all duration-300 group-hover:-translate-y-1 group-hover:border-primary group-hover:bg-card group-hover:glow">
-                    <span className="rounded-lg bg-primary/10 p-2 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:text-glow">
+                  <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-violet-500/10 px-4 py-3 backdrop-blur-xl transition-all duration-300 group-hover:-translate-y-1 group-hover:border-blue-300/40 group-hover:bg-gradient-to-r group-hover:from-blue-500/20 group-hover:via-indigo-500/20 group-hover:to-violet-500/20 group-hover:shadow-[0_0_28px_rgba(99,102,241,0.35)]">
+                    <span className="rounded-lg bg-white/5 p-2 text-blue-300 transition-all duration-300 group-hover:bg-white/10 group-hover:text-violet-200 group-hover:shadow-[0_0_18px_rgba(59,130,246,0.35)]">
                       <Icon className="h-4 w-4" />
                     </span>
-                    <span className="text-xs font-medium leading-tight transition-colors duration-300 group-hover:text-primary md:text-sm">
+                    <span className="text-xs font-medium leading-tight text-slate-100 transition-colors duration-300 group-hover:text-white md:text-sm">
                       {label}
                       <br />
                       {sub}
@@ -209,12 +211,12 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="glass-card mt-16 grid grid-cols-2 gap-6 p-6 md:grid-cols-4 md:divide-x md:divide-border/60"
+          className="glass-card mt-16 grid grid-cols-2 gap-6 p-6 md:grid-cols-3 md:divide-x md:divide-border/60"
         >
           {stats.map(({ icon: Icon, value, label }) => (
             <div key={label} className="group flex items-center gap-4 px-2 md:px-6">
               <span className="rounded-xl bg-primary/10 p-3 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:glow-sm">
-                <Icon className="h-5 w-5" />
+                <Icon className="h-8 w-8" />
               </span>
               <div>
                 <p className="font-display text-lg font-bold leading-tight md:text-xl">
